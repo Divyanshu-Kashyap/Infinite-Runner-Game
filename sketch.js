@@ -12,6 +12,7 @@ var SurvivalTime
 function preload(){
   //To load the images and the animations in our game
   monkey_running =loadImage("sprite_0.png");
+  
   bananaImage = loadImage("banana.png");
   
   obstacleImage = loadImage("obstacle.png");
@@ -102,7 +103,7 @@ function draw() {
     }    
  } 
    
-    //when monkey will touch the obstacles group then the state will       be end state
+    //when monkey will touch the obstacles group then the state will be end state
    if(obstaclesGroup.isTouching(monkey)){
     monkey.scale=0.1;
       gameState=End;  
@@ -147,14 +148,14 @@ function draw() {
 
 //Function for creating the bananas
 function bananass(){
-  if(frameCount%80===0){
+  if(frameCount%30===0){
     banana=createSprite(700,400,30,30);
     
     banana.addImage(bananaImage);
     banana.scale=0.1;
     
     banana.velocityX=-11;
-    banana.y=Math.round(random(200,250));
+    banana.y=Math.round(random(0,400));
     
     banana.lifetime=200;
     
@@ -172,7 +173,7 @@ function obstacles(){
     
    // obstacle.velocityX=-11;
     
-    obstacle.lifetime=1;
+    obstacle.lifetime=-1;
     
     obstaclesGroup.add(obstacle);   
   }    
